@@ -137,12 +137,12 @@ public abstract class FluidRegistry
      */
     public static boolean registerFluid(Fluid fluid)
     {
-        masterFluidReference.put(uniqueName(fluid), fluid);
         delegates.put(fluid, new FluidDelegate(fluid, fluid.getName()));
         if (fluids.containsKey(fluid.getName()))
         {
             return false;
         }
+        masterFluidReference.put(uniqueName(fluid), fluid);
         fluids.put(fluid.getName(), fluid);
         maxID++;
         fluidIDs.put(fluid, maxID);
